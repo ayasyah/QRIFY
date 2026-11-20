@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="Create free QR codes for websites, text and WiFi. Customize colors, add a logo and download your QR code as a PNG.">
+  <title>QRIFY — Free QR Code Generator</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.9.2/lib/qr-code-styling.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="QRIFY home">QR<span>IFY</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#generator">Generator</a><a href="guides.html">Guides</a>
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">FREE QR CODE GENERATOR</span>
+      <h1>Make a QR code.<br><span>Share anything.</span></h1>
+      <p>Create QR codes for links, text and WiFi. Customize the look, add your logo, and download a PNG — right in your browser.</p>
+      <a class="button button-primary" href="#generator">Create a QR code <span aria-hidden="true">→</span></a>
+      <p class="micro-copy">No account required for basic QR generation.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="art-glow"></div><div class="art-card">
+        <div class="fake-qr">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="art-caption"><i></i> Your next connection starts here</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tool-section" id="generator">
+    <div class="section-heading">
+      <span class="eyebrow">SIMPLE. QUICK. CUSTOMIZABLE.</span>
+      <h2>QR Code Generator</h2>
+      <p>Choose what your QR code should contain, then customize it.</p>
+    </div>
+    <div class="generator-card">
+      <div class="form-column">
+        <label for="qrType">QR code type</label>
+        <select id="qrType">
+          <option value="url">Website URL</option>
+          <option value="text">Plain text</option>
+          <option value="wifi">WiFi network</option>
+        </select>
+
+        <div id="urlFields" class="field-group">
+          <label for="urlInput">Website address</label>
+          <input id="urlInput" type="url" placeholder="https://example.com" autocomplete="url">
+        </div>
+
+        <div id="textFields" class="field-group" hidden>
+          <label for="textInput">Your text</label>
+          <textarea id="textInput" rows="4" maxlength="2000" placeholder="Write something to share..."></textarea>
+          <small class="hint">Up to 2,000 characters.</small>
+        </div>
+
+        <div id="wifiFields" class="field-group" hidden>
+          <label for="wifiName">WiFi network name (SSID)</label>
+          <input id="wifiName" type="text" maxlength="32" placeholder="Your WiFi name">
+          <label for="wifiPassword">WiFi password</label>
+          <input id="wifiPassword" type="password" maxlength="128" placeholder="Your WiFi password">
+          <label for="wifiSecurity">Security type</label>
+          <select id="wifiSecurity">
+            <option value="WPA">WPA / WPA2</option>
+            <option value="WEP">WEP</option>
+            <option value="nopass">No password</option>
+          </select>
+          <small class="hint">WiFi details are encoded into the QR code. Only share it with people you trust.</small>
+        </div>
+
+        <div class="two-fields">
+          <div><label for="qrColor">QR color</label><input id="qrColor" type="color" value="#071426"></div>
+          <div><label for="bgColor">Background</label><input id="bgColor" type="color" value="#ffffff"></div>
+        </div>
+
+        <label for="logoInput">Add a logo (optional)</label>
+        <input id="logoInput" type="file" accept="image/png,image/jpeg,image/webp">
+        <small class="hint">Use a small square image for best results.</small>
+
+        <button id="generateBtn" class="button button-primary full-width">Generate QR code</button>
+        <p id="errorMessage" class="message error" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="preview-column">
+        <h3>Your QR code</h3>
+        <div id="qrPreview" class="qr-preview">
+          <div class="preview-placeholder"><span>▦</span><p>Your QR code will appear here</p></div>
+        </div>
+        <button id="downloadBtn" class="button button-download full-width" disabled>Download PNG</button>
+        <button id="resetBtn" class="button button-quiet full-width" type="button">Reset</button>
+        <p class="hint center">Always test your QR code with a phone camera before sharing or printing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="section-heading"><span class="eyebrow">MADE FOR EVERYDAY SHARING</span><h2>Everything you need to create a QR code</h2></div>
+    <div class="feature-grid">
+      <article class="feature-card"><div class="feature-icon">↗</div><h3>Website links</h3><p>Turn a website address into a scannable code for posters, cards or presentations.</p></article>
+      <article class="feature-card"><div class="feature-icon">T</div><h3>Plain text</h3><p>Share a short message, note or information without asking someone to type it.</p></article>
+      <article class="feature-card"><div class="feature-icon">⌁</div><h3>WiFi access</h3><p>Let guests scan a code to connect to a supported wireless network.</p></article>
+      <article class="feature-card"><div class="feature-icon">✦</div><h3>Custom appearance</h3><p>Choose contrasting colors and optionally place a logo in the center.</p></article>
+    </div>
+  </section>
+
+  <section class="content-section how-section">
+    <div class="section-heading"><span class="eyebrow">HOW IT WORKS</span><h2>Three simple steps</h2></div>
+    <div class="steps-grid">
+      <article><b>01</b><h3>Choose a type</h3><p>Select a website URL, text or WiFi network.</p></article>
+      <article><b>02</b><h3>Customize it</h3><p>Choose colors and add an optional logo.</p></article>
+      <article><b>03</b><h3>Download & test</h3><p>Save your PNG and scan it before using it.</p></article>
+    </div>
+  </section>
+
+  <section class="content-section faq-section">
+    <div class="section-heading"><span class="eyebrow">HELP CENTER</span><h2>Frequently asked questions</h2></div>
+    <details><summary>Is QRIFY free to use?</summary><p>QRIFY's basic QR generation features are free to use. Any future paid features will be clearly identified before purchase.</p></details>
+    <details><summary>Does QRIFY upload my QR content?</summary><p>The QR content and optional logo are processed in your browser by the QR library. The website hosting provider may still receive ordinary technical request data when you visit the site.</p></details>
+    <details><summary>Will my QR code expire?</summary><p>QRIFY creates a standard static QR code. It does not expire by itself, but a website link inside it may stop working if that destination changes or is removed.</p></details>
+    <details><summary>Why should I test my QR code?</summary><p>Testing helps confirm that the code scans correctly and leads to the intended destination. Strong contrast and a clear quiet margin help scanning.</p></details>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <a class="brand" href="index.html">QR<span>IFY</span></a>
+  <p>Create and share with confidence.</p>
+  <div class="footer-links"><a href="guides.html">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></div>
+  <small>© 2026 QRIFY. All rights reserved.</small>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
